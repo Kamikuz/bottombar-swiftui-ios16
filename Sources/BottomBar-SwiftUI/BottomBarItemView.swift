@@ -9,32 +9,52 @@
 import SwiftUI
 
 public struct BottomBarItemView: View {
-    @Binding var selected : Int
+    @Binding var selected: Int
     public let index: Int
     public let item: BottomBarItem
-    
+
     public var body: some View {
-        HStack {
-            item.icon
-                .imageScale(.large)
-                .foregroundColor(isSelected ? item.color : .primary)
-            
-            if isSelected {
-                Text(item.title)
-                    .foregroundColor(item.color)
-                    .font(.caption)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+        if #available(iOS 16, *) {
+            HStack {
+                item.icon
+                        .imageScale(.medium)
+                        .foregroundColor(isSelected ? item.color : .primary)
+
+                if isSelected {
+                    Text(item.title)
+                            .foregroundColor(item.color)
+                            .font(.caption)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                }
             }
+                    .padding(5)
+                    .background(
+                            Capsule()
+                                    .fill(isSelected ? item.color.opacity(0.2) : Color.clear)
+                    )
+        } else {
+            HStack {
+                item.icon
+                        .imageScale(.large)
+                        .foregroundColor(isSelected ? item.color : .primary)
+
+                if isSelected {
+                    Text(item.title)
+                            .foregroundColor(item.color)
+                            .font(.caption)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                }
+            }
+                    .padding()
+                    .background(
+                            Capsule()
+                                    .fill(isSelected ? item.color.opacity(0.2) : Color.clear)
+                    )
         }
-        .padding()
-        .background(
-            Capsule()
-                .fill(isSelected ? item.color.opacity(0.2) : Color.clear)
-        )
     }
-    
-    var isSelected : Bool{
+
+    var isSelected: Bool {
         selected == index
     }
-    
+
 }
