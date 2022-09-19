@@ -48,7 +48,7 @@ public struct BottomBar: View {
             ForEach(0..<items.count) { index in
                 self.itemView(at: index)
 
-                if index != self.items.count - 1 {
+                if index != items.count - 1 {
                     Spacer()
                 }
             }

@@ -27,7 +27,7 @@ public struct BottomBarItemView: View {
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
             }
-                    .padding(8)
+                    .padding()
                     .background(
                             Capsule()
                                     .fill(isSelected ? item.color.opacity(0.2) : Color.clear)
