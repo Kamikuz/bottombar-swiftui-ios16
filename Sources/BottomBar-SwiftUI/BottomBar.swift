@@ -57,16 +57,3 @@ public struct BottomBar: View {
                 .animation(.default, value: selectedIndex)
     }
 }
-
-#if DEBUG
-struct BottomBar_Previews: PreviewProvider {
-    static var previews: some View {
-        BottomBar(selectedIndex: .constant(0), items: [
-            BottomBarItem(icon: "house.fill", title: "Home", color: .purple),
-            BottomBarItem(icon: "heart", title: "Likes", color: .pink),
-            BottomBarItem(icon: "magnifyingglass", title: "Search", color: .orange),
-            BottomBarItem(icon: "person.fill", title: "Profile", color: .blue)
-        ])
-    }
-}
-#endif

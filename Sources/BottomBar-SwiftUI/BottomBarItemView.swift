@@ -21,13 +21,13 @@ public struct BottomBarItemView: View {
                         .foregroundColor(isSelected ? item.color : .primary)
 
                 if isSelected {
-                    Text(item.title)
+                    Text(LocalizedStringKey(item.title))
                             .foregroundColor(item.color)
                             .font(.caption)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
             }
-                    .padding()
+                    .padding(10)
                     .background(
                             Capsule()
                                     .fill(isSelected ? item.color.opacity(0.2) : Color.clear)
@@ -39,13 +39,13 @@ public struct BottomBarItemView: View {
                         .foregroundColor(isSelected ? item.color : .primary)
 
                 if isSelected {
-                    Text(item.title)
+                    Text(LocalizedStringKey(item.title))
                             .foregroundColor(item.color)
                             .font(.caption)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
             }
-                    .padding()
+                    .padding(10)
                     .background(
                             Capsule()
                                     .fill(isSelected ? item.color.opacity(0.2) : Color.clear)
